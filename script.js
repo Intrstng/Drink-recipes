@@ -58,7 +58,7 @@ coctailsStorage.addValue('гоголь-моголь', {
   'алкогольный': 'нет',
   'ингредиенты': ['Желток перепелиного яйца 5шт.', 'Молоко 150мл', 'Нежирные сливки 50мл', 'Мед 20мл', 'Мускатный орех молотый 1г', 'Печенье 10г'],
   'рецепт': 'Смешай в питчере желтки перепелиных яиц 5 шт. и мед 20 мл. Налей нежирные сливки 50 мл и молоко 150 мл. Нагрей коктейль паром от кофемашины, не доводя до кипения. Перелей в бокал для ирландского кофе. Добавь щепотку мускатного ореха молотого и укрась печеньем.',
-  'описание': 'Вам нравятся десертные горячие коктейли? Тогда попробуйте этот сливочный, пряный и сладкий коктейль на основе молока, безалкогольный. Выбор космонавтов.',
+  'описание': 'Вам нравятся десертные горячие коктейли? Тогда попробуйте этот сливочный, пряный и сладкий коктейль на основе молока, безалкогольный. Выбор космонавтов',
 });
 
 
@@ -68,7 +68,7 @@ const btnDelRecipe = document.getElementById('btnDelRecipe');
 const btnGetListOfDrinks = document.getElementById('btnGetListOfDrinks');
 
 function capitalizeWord(str) {
-  return str[0].toUpperCase() + str.slice(1);
+  return str[0].toUpperCase() + str.slice(1).toLowerCase();
 }
 
 function createDrinkInfoCard() {
@@ -142,21 +142,31 @@ function buildAvailableDrinksList(node) {
 
 function showDrinkRecipeOnPage() {
   const drinkName = prompt('Введите название напитка');
-  if (drinkName === '' || drinkName === null || !coctailsStorage.getKeys().includes(drinkName.toLowerCase())) return;
-  if (document.body.contains(document.querySelector('.card'))) {
-    document.querySelector('.card').remove();
-  }
+  let title = null;
+  if (drinkName === '' || drinkName === null) return;
+      if (document.body.contains(document.querySelector('.card'))) {
+      document.querySelector('.card').remove();
+    }
   createDrinkInfoCard();
   const drinkInfoCard = document.querySelector('.card');
-  const title = document.createElement('h2');
-  title.innerHTML = `Коктейль <span>"${capitalizeWord(drinkName)}"</span> <span>(алкогольный: ${coctailsStorage.getValue(drinkName)['алкогольный']})</span>`;
-  drinkInfoCard.append(title);
-  const ingredientsTitle = document.createElement('h3');
-  ingredientsTitle.textContent = `Необходимые ингредиенты:`;
-  title.after(ingredientsTitle);
-  buildIngredientsList(drinkName, drinkInfoCard);
-  showRecipeDescriptionOnPage(drinkName, drinkInfoCard);
-  showDrinkDescriptionOnPage(drinkName, drinkInfoCard);
+
+  if (coctailsStorage.getKeys().includes(drinkName.toLowerCase())) {
+    title = document.createElement('h2');
+    title.innerHTML = `Коктейль <span>"${capitalizeWord(drinkName)}"</span> <span>(алкогольный: ${coctailsStorage.getValue(drinkName)['алкогольный']})</span>`;
+    drinkInfoCard.append(title);
+    const ingredientsTitle = document.createElement('h3');
+    ingredientsTitle.textContent = `Необходимые ингредиенты:`;
+    title.after(ingredientsTitle);
+    buildIngredientsList(drinkName, drinkInfoCard);
+    showRecipeDescriptionOnPage(drinkName, drinkInfoCard);
+    showDrinkDescriptionOnPage(drinkName, drinkInfoCard);
+  } else {
+    title = document.createElement('h4');
+    title.classList.add('alarm');
+    title.innerHTML = `Напитка <span>"${capitalizeWord(drinkName)}"</span> в базе не существует. Повторите ввод.`;
+    drinkInfoCard.append(title);
+    setTimeout(() => drinkInfoCard.remove(), 3000);
+  }
 }
 btnGetDrinkInfo.addEventListener('click', showDrinkRecipeOnPage);
 

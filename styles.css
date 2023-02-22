@@ -91,3 +91,103 @@ ul {
     margin: 0;
     font-style: italic;
 }
+
+
+/* SCSS */
+/* body {
+    background-image: url('https://pixabay.com/get/ge5138772176329161f7bbdb55b945993102a1acbe472465b2478eaf361c3d48f07e60052164b8cf3a1421edb8fd52e7e097ae3ed190221eba83f714ad8d8666140b32a1b7a032cda3f57c8a660fa01f0_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+  }
+  .card {
+    padding: 20px 30px;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 4px 4px 2px 1px rgba(123, 0, 255, 0.2);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    color: rgba(10, 81, 213, 0.7);
+    font-weight: normal;
+    span {
+      color:rgba(254, 11, 153, 0.7);
+      letter-spacing: 1px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      span {
+        &:last-of-type {
+          font-size: 0.8rem;
+          color: rgba(10, 81, 213, 0.7);
+        }
+      }
+    }
+    h3 {
+      margin: 0 0 10px;
+      text-decoration: underline;
+    color:rgba(254, 11, 153, 0.7);
+    }
+    p {
+      margin-top: 0;
+    }
+    h4 {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-align: center;
+      line-height: 1.1rem;
+    }
+    ul {
+      margin-top: 0;
+      .drinks-item {
+        list-style-image: url('https://img.icons8.com/cotton/16/000000/beach-cocktail--v2.png');
+      }
+      .ingredients-item {
+        list-style-image: url('https://img.icons8.com/ios/18/null/coconut-cocktail.png');
+      }
+    }
+    .alarm {
+      color: rgba(255, 127, 80);
+      margin: 0;
+      font-style: italic;
+    }
+  }
+  .buttons {
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    .btn {
+      padding: 13px 22px;
+      min-width: 85px;
+      color: rgb(255, 255, 255);
+      font-size: 1rem;
+      letter-spacing: 1px;
+      font-weight: bold;
+      background-color: rgb(254, 11, 153);
+      border: none;
+      border-radius: 10px;
+      transition: all 0.25s ease;
+      &_hover {
+        &:hover {
+          color: rgba(255, 255, 255, 0.7);
+    background-color: rgb(188, 10, 114);
+        }
+      }
+      &_active {
+        &:active {
+          background-color: rgba(23, 79, 183);
+        }
+      }
+    }
+  } */
